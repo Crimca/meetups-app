@@ -1,5 +1,5 @@
 // import { MongoClient } from 'mongodb';
-import { connectDatabase, insertDocument } from '../../components/helpers/db-util';
+import { connectDatabase, insertDocument } from '../../helpers/db-util';
 
 // /api/new-meetup
 // POST /api/new-meetup

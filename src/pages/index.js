@@ -1,6 +1,6 @@
 // import { MongoClient } from 'mongodb';
 import MeetupList from '../components/meetups/MeetupList';
-import { connectDatabase, getAllDocuments } from '../components/helpers/db-util';
+import { connectDatabase, getAllDocuments } from '../helpers/db-util';
 
 function HomePage(props) {
   return <MeetupList meetups={props.meetups} />;
