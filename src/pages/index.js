@@ -1,7 +1,6 @@
-import { MongoClient } from 'mongodb';
+// import { MongoClient } from 'mongodb';
 import MeetupList from '../components/meetups/MeetupList';
-
-
+import { connectDatabase, getAllDocuments } from '../components/helpers/db-util';
 
 function HomePage(props) {
   return <MeetupList meetups={props.meetups} />;
@@ -9,16 +8,10 @@ function HomePage(props) {
 
 export async function getStaticProps() {
   // fetch data from an API
-      const client = await MongoClient.connect(
-          'mongodb+srv://meetupuser:UqLgWfxOdFmnXBal@cluster0.mgfslp7.mongodb.net/meetups_db?retryWrites=true&w=majority'
-      );
-      const db = client.db();
+      const client = await connectDatabase();
 
-      const meetupsCollection = db.collection('meetups');
+      const meetups = await getAllDocuments(client, 'meetups', { _id: -1 }, {});
 
-      const meetups = await meetupsCollection.find().toArray();
-
-      client.close();
 
     return {
       props: {
@@ -32,15 +25,5 @@ export async function getStaticProps() {
       revalidate: 1,
     };
   }
-  
-// export async function getStaticProps() {
-//   // fetch data from an API
-//   return {
-//     props: {
-//       meetups: DUMMY_MEETUPS
-//     },
-//     revalidate: 1
-//   }; 
-// }
 
 export default HomePage;
