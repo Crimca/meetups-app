@@ -26,7 +26,7 @@ export async function getAllDocuments(client, collection, sort, filter = {}) {
 
 export async function getDocumentIdList(client, collection) {
     const db = client.db();
-    const idList = await db.collection(collection).find({}, { _id: 1}).toArray();
+    const idList = await db.collection(collection).find({}, { _id: 1 }).toArray();
 
     return idList;
 }

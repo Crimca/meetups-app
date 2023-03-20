@@ -10,6 +10,15 @@ function MainNavigation() {
       <nav>
         <ul>
           <li>
+            <Link href='/profile'>My Profile</Link>
+          </li>
+          <li>
+          <Link href='/api/auth/login'>Login</Link>
+          </li>
+          <li>
+          <Link href='/api/auth/logout'>Logout</Link>
+          </li>
+          <li>
             <Link href='/'>All Meetups</Link>
           </li>
           <li>
